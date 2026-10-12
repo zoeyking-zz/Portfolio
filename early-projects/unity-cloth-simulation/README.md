@@ -4,6 +4,8 @@
 
 Unity/C# 网格变形课程项目，代码由本人独立完成。实现从三角面索引中提取并去重网格边，根据初始边长进行应变限制，同时维护顶点速度、固定点和球体碰撞，逐帧更新 Mesh 并重算法线。
 
+视频演示：[bilibili](https://www.bilibili.com/video/BV1abp96aEqc/?vd_source=81196c19ce83679c20e55a5cf9b5a4c3)
+
 ## 核心实现
 
 - 从 Triangle Index 构建唯一 Edge List；
