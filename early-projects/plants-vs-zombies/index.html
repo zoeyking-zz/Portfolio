@@ -14,6 +14,8 @@
     h1 { font-size: 1.1rem; font-weight: 600; margin: 0 0 12px; }
     #animation_container { position: relative; width: 960px; height: 640px; max-width: 100%; margin: auto; overflow: hidden; background: #fff; box-shadow: 0 12px 48px #0008; }
     #canvas, #dom_overlay_container { position: absolute; inset: 0; display: block; }
+    /* AdobeAn.makeResponsive rewrites inline styles on this container. Keep it transparent to input. */
+    #dom_overlay_container { pointer-events: none !important; }
     #status { margin: 12px 0 0; color: #d9e8d9; }
     @media (max-width: 700px) { main { padding: 0; } h1, #status { margin-left: 12px; margin-right: 12px; } }
   </style>

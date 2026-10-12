@@ -21,6 +21,7 @@
 | [扫雷](early-projects/minesweeper/) | C++、SFML、网格交互、Windows 桌面程序 | 源码、素材与已验证启动文件 | 可在 Windows 本地运行 |
 | [贪吃蛇](early-projects/snake/) | C++、SFML、动画、音效、Windows 桌面程序 | 源码、素材与已验证启动文件 | 可在 Windows 本地运行 |
 | [植物大战僵尸](early-projects/plants-vs-zombies/) | JavaScript、CreateJS、Adobe Animate | 可在线运行的网页导出、贴图与设计文档 | GitHub Pages 部署后可直接游玩 |
+| [Unity 正弦波流体模拟](early-projects/unity-fluid-simulation/) | Unity、C#、Mesh、正弦位移、实时顶点变形 | Windows 历史成品、GIF 与实验报告 | 原始 Unity 工程与源码缺失 |
 
 ## 文件组织
 
@@ -34,6 +35,7 @@ technical-art-portfolio-staging/
 │   ├── castle-escape/
 │   ├── blender-realtime-mocap/
 │   ├── unity-cloth-simulation/
+│   ├── unity-fluid-simulation/
 │   ├── opengl-lighting-demo/
 │   ├── uno/
 │   ├── minesweeper/

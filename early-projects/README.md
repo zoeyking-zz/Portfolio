@@ -12,6 +12,7 @@
 | [扫雷](minesweeper/) | SFML/C++ 源码、素材、已验证的 Windows 启动文件 | Windows 桌面版；不能由 GitHub Pages 直接运行 |
 | [贪吃蛇](snake/) | SFML/C++ 源码、素材、已验证的 Windows 启动文件 | Windows 桌面版；不能由 GitHub Pages 直接运行 |
 | [植物大战僵尸](plants-vs-zombies/) | CreateJS 网页版、素材和设计文档 | 可通过 GitHub Pages 在线运行 |
+| [Unity 正弦波流体模拟](unity-fluid-simulation/) | Windows 历史成品、GIF 和实验报告 | 原始 Unity 工程与源码缺失 |
 
 每个项目保留独立 README。项目内部的 `media/`、`src/`、`Assets/` 等结构随项目一起迁移，近期开发项目不放入本目录。
 
