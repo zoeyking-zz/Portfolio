@@ -1,3 +1,4 @@
 @echo off
+setlocal
 cd /d "%~dp0"
-start "Minesweeper" "%~dp0MineSweeper.exe"
+"%~dp0MineSweeper.exe"
