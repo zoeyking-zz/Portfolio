@@ -17,6 +17,10 @@
 | [Blender 实时动捕与虚拟角色工具](early-projects/blender-realtime-mocap/) | Blender、Python、Motion Capture、Facial Animation | 案例说明、演示关键画面；完整视频可按需提供 | 可作为案例展示；源码已无法找回 |
 | [Unity 布料模拟](early-projects/unity-cloth-simulation/) | Unity、C#、Mesh、Constraint、Collision、Shader | 核心脚本与 Shader | 代码样本；场景与贴图未公开 |
 | [OpenGL 光照与相机交互](early-projects/opengl-lighting-demo/) | C++、OpenGL、GLSL、Phong、GLFW、GLEW | 源码、Shader、GIF | 早期课程项目；依赖与贴图未打包 |
+| [UNO](early-projects/uno/) | C++、SFML、卡牌规则、Windows 桌面程序 | 源码、素材与已验证启动文件 | 可在 Windows 本地运行 |
+| [扫雷](early-projects/minesweeper/) | C++、SFML、网格交互、Windows 桌面程序 | 源码、素材与已验证启动文件 | 可在 Windows 本地运行 |
+| [贪吃蛇](early-projects/snake/) | C++、SFML、动画、音效、Windows 桌面程序 | 源码、素材与已验证启动文件 | 可在 Windows 本地运行 |
+| [植物大战僵尸](early-projects/plants-vs-zombies/) | JavaScript、CreateJS、Adobe Animate | 可在线运行的网页导出、贴图与设计文档 | GitHub Pages 部署后可直接游玩 |
 
 ## 文件组织
 
@@ -30,7 +34,11 @@ technical-art-portfolio-staging/
 │   ├── castle-escape/
 │   ├── blender-realtime-mocap/
 │   ├── unity-cloth-simulation/
-│   └── opengl-lighting-demo/
+│   ├── opengl-lighting-demo/
+│   ├── uno/
+│   ├── minesweeper/
+│   ├── snake/
+│   └── plants-vs-zombies/
 └── PUBLICATION_CHECKLIST.md
 ```
 

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="authoring-tool" content="Adobe Animate CC">
+  <title>植物大战僵尸 · 早期作品</title>
+  <script src="libs/1.0.0/createjs.min.js"></script>
+  <script src="PVZ-Liz.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #16271a; color: #fff; font: 16px system-ui, sans-serif; }
+    main { width: min(100%, 1024px); padding: 20px; }
+    h1 { font-size: 1.1rem; font-weight: 600; margin: 0 0 12px; }
+    #animation_container { position: relative; width: 960px; height: 640px; max-width: 100%; margin: auto; overflow: hidden; background: #fff; box-shadow: 0 12px 48px #0008; }
+    #canvas, #dom_overlay_container { position: absolute; inset: 0; display: block; }
+    #status { margin: 12px 0 0; color: #d9e8d9; }
+    @media (max-width: 700px) { main { padding: 0; } h1, #status { margin-left: 12px; margin-right: 12px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>植物大战僵尸</h1>
+    <div id="animation_container">
+      <canvas id="canvas" width="960" height="640" aria-label="植物大战僵尸游戏画面"></canvas>
+      <div id="dom_overlay_container" aria-hidden="true"></div>
+    </div>
+    <p id="status" role="status">正在加载游戏资源…</p>
+  </main>
+  <script>
+    let canvas, stage, exportRoot, animContainer, domOverlayContainer;
+    function setStatus(message) { document.getElementById('status').textContent = message; }
+    function init() {
+      canvas = document.getElementById('canvas');
+      animContainer = document.getElementById('animation_container');
+      domOverlayContainer = document.getElementById('dom_overlay_container');
+      const comp = AdobeAn.getComposition('ED1FE49A74D81748A4C97F263EA7AC1F');
+      const lib = comp.getLibrary();
+      const loader = new createjs.LoadQueue(false);
+      loader.addEventListener('fileload', event => {
+        if (event?.item.type === 'image') comp.getImages()[event.item.id] = event.result;
+      });
+      loader.addEventListener('error', event => setStatus(`资源加载失败：${event.item?.src || '未知文件'}`));
+      loader.addEventListener('complete', event => handleComplete(event, comp));
+      loader.loadManifest(lib.properties.manifest);
+    }
+    function handleComplete(event, comp) {
+      const lib = comp.getLibrary();
+      const spriteSheets = comp.getSpriteSheet();
+      for (const metadata of lib.ssMetadata) {
+        spriteSheets[metadata.name] = new createjs.SpriteSheet({ images: [event.target.getResult(metadata.name)], frames: metadata.frames });
+      }
+      exportRoot = new lib.PVZLiz();
+      stage = new lib.Stage(canvas);
+      stage.enableMouseOver();
+      stage.addChild(exportRoot);
+      createjs.Ticker.framerate = lib.properties.fps;
+      createjs.Ticker.addEventListener('tick', stage);
+      AdobeAn.makeResponsive(false, 'both', false, 1, [canvas, animContainer, domOverlayContainer]);
+      AdobeAn.compositionLoaded(lib.properties.id);
+      setStatus('游戏已加载。');
+    }
+    window.addEventListener('load', init);
+  </script>
+</body>
+</html>
