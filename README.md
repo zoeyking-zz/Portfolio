@@ -41,7 +41,7 @@ technical-art-portfolio-staging/
 │   ├── minesweeper/
 │   ├── snake/
 │   └── plants-vs-zombies/
-└── PUBLICATION_CHECKLIST.md
+└── GAME_EXPERIENCE.md
 ```
 
 新做的项目直接添加到仓库顶层，每个项目自带 README、代码、演示和使用说明。大型游戏成品通过 Releases 下载，仓库保留项目介绍及文件校验清单。目录调整于 2026-09-14 完成；原 `projects/...` 路径已迁移至上述位置。
