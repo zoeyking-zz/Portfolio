@@ -2,7 +2,7 @@
 
 一个面向技术美术作品审查的、本地优先的多格式 3D 资产浏览与自动检查工具。
 
-**Live demo:** [https://zoeyking-zz.github.io/technical-art-portfolio-staging/](https://zoeyking-zz.github.io/technical-art-portfolio-staging/)
+**Live demo:** https://gen3d-inspector.zoeyking0675.chatgpt.site/
 
 ## Highlights
 
@@ -54,7 +54,7 @@ npm run build:github-pages
 npm run verify:github-pages
 ```
 
-The GitHub Pages workflow lives at the root of the portfolio repository because GitHub only discovers workflows from a repository's root `.github/workflows` directory. After the repository owner enables **Settings → Pages → Source → GitHub Actions**, every push affecting `gen3d-inspector/` publishes an interactive browser version at `https://zoeyking-zz.github.io/technical-art-portfolio-staging/`.
+The GitHub Pages workflow lives at the root of the portfolio repository because GitHub only discovers workflows from a repository's root `.github/workflows` directory. After the repository owner enables **Settings → Pages → Source → GitHub Actions**, every push affecting `gen3d-inspector/` publishes an interactive browser version at `https://zoeyking-zz.github.io/Portfolio/`.
 
 For a Windows `.exe`, use the same `dist-static/` bundle in a small Electron or Tauri shell. The browser version is the recommended first distribution because it requires no installation, updates automatically, and preserves the current local-only file workflow.
 
