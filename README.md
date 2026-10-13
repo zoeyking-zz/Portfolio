@@ -6,14 +6,14 @@
 
 | 项目 | 内容 | 入口 |
 |---|---|---|
-| [Gen3D Inspector](gen3d-inspector/) | 浏览器本地多格式 3D 资产检查器；支持 Graphdeco Gaussian Splat 真渲染与自适应视口 | [在线演示](https://gen3d-inspector.zoeyking0675.chatgpt.site/) · [完整源码](gen3d-inspector/) |
+| [Gen3D Inspector](gen3d-inspector/) | 浏览器本地多格式 3D 资产检查器；支持 Graphdeco Gaussian Splat 真渲染与自适应视口 | [在线演示](https://zoeyking-zz.github.io/Portfolio/) · [完整源码](gen3d-inspector/) |
 | [Gen3D Asset Factory](gen3d-asset-factory/) | Blender 静态资产检查、规范命名、GLB 导出与重新导入核对；0.2.0 预览版 | [安装包](gen3d-asset-factory/dist/gen3d_factory-0.2.0.zip) · [测试记录](gen3d-asset-factory/docs/testing.md) |
 
 ## 本科与早期项目
 
 | 项目 | 技术关键词 | 当前材料 | 状态 |
 |---|---|---|---|
-| [古堡逃杀](early-projects/castle-escape/) | Unity、C#、角色交互、UI、氛围表现 | [Windows 历史成品下载](https://github.com/zoeyking-zz/technical-art-portfolio-staging/releases/tag/castle-escape-archive-2026-09-14) | 包含开始界面和主游戏；尚未找回原始 Unity 工程 |
+| [古堡逃杀](early-projects/castle-escape/) | Unity、C#、角色交互、UI、氛围表现 | [Windows 历史成品下载](https://github.com/zoeyking-zz/Portfolio/releases/tag/castle-escape-archive-2026-09-14) | 包含开始界面和主游戏；尚未找回原始 Unity 工程 |
 | [Blender 实时动捕与虚拟角色工具](early-projects/blender-realtime-mocap/) | Blender、Python、Motion Capture、Facial Animation | 案例说明、演示关键画面；完整视频可按需提供 | 可作为案例展示；源码已无法找回 |
 | [Unity 布料模拟](early-projects/unity-cloth-simulation/) | Unity、C#、Mesh、Constraint、Collision、Shader | 核心脚本与 Shader | 代码样本；场景与贴图未公开 |
 | [OpenGL 光照与相机交互](early-projects/opengl-lighting-demo/) | C++、OpenGL、GLSL、Phong、GLFW、GLEW | 源码、Shader、GIF | 早期课程项目；依赖与贴图未打包 |
