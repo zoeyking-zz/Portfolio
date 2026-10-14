@@ -28,11 +28,9 @@
 ```
 
 - 可分别启动开始界面与主游戏的 `.exe`；请保持各自的 `_Data` 目录与 DLL 在原位置。
-- 开始界面能否自动跳转至主游戏尚未验证。若不能跳转，可尝试直接打开 `主工程/古堡逃杀.exe`。
-- 当前归档未完成在本机的启动、兼容性和完整流程测试，因此不标记为“已验证可运行”。
 - 文件体积、SHA-256 与包含内容见 [归档清单](archive-manifest.json)。下载页同时提供 ZIP 的 SHA-256 校验文件。
 
-## 源码状态
+### 源码状态
 
 2026-09-14 盘点时，提供的目录包含 `.exe`、`UnityPlayer.dll`、`GameAssembly.dll`、`_Data` 运行资源，以及 `BackUpThisFolder_ButDontShipItWithYourGame` 编译备份。未找到 `Assets/`、`Packages/`、`ProjectSettings/` 或原始 `.cs` 文件。
 
@@ -40,7 +38,8 @@
 
 如后续找回包含 `Assets/` 和 `ProjectSettings/` 的工程，可再补充源代码、Unity 版本、依赖、场景及复现说明。现有成品与源码状态分别记录。
 
-## 怪物被墙面遮挡时的可见性处理（Shader Graph）
+
+## Shader Graph 剔除遮挡：怪物被墙面遮挡时的可见性处理
 
 ### 问题
 
@@ -50,6 +49,13 @@
 2. **鼠标射线遮挡：** 怪物的 `MeshCollider` 会先命中鼠标射线，使交互/选点射线无法穿过墙抵达目标。
 
 当时的处理将两类问题分开：用怪物 Shader 提升被遮挡时的辨识度；对不需要承载物理或交互的墙面 MeshCollider 关闭或忽略，避免它们阻断鼠标射线。
+
+### 结果演示图片
+
+<img width="1608" height="852" alt="image" src="https://github.com/user-attachments/assets/4aa223ee-82b3-48fb-b4b2-aeafdf54e8bd" />
+
+<img width="1683" height="858" alt="image" src="https://github.com/user-attachments/assets/a883596b-41ed-43f9-aab9-fe39322e959f" />
+
 
 ### Shader Graph 实现
 
@@ -74,20 +80,14 @@ Dither + Float (Property) ──> Fragment / Alpha
 Float (Property) ───────────> Alpha Clip Threshold
 ```
 
-### 演示图片
-
-<img width="1608" height="852" alt="image" src="https://github.com/user-attachments/assets/4aa223ee-82b3-48fb-b4b2-aeafdf54e8bd" />
-
-<img width="1683" height="858" alt="image" src="https://github.com/user-attachments/assets/a883596b-41ed-43f9-aab9-fe39322e959f" />
-
-### 原理与取舍
+#### 原理与取舍
 
 - **Fresnel：** 以视角相关的边缘权重强调轮廓。它本身并不检测“是否被墙遮挡”，而是给角色提供更容易辨认的边缘表现；若需要仅在遮挡发生时启用/切换材质，仍需由相机射线、可见性逻辑或其他游戏逻辑驱动。
 - **Unlit：** 不受场景光照直接影响，适合做稳定、醒目的可见性提示；代价是它不追求与原角色 PBR 光照完全一致。
 - **Dither + Alpha Clip：** 通过裁剪形成半透明的视觉过渡，同时避免传统透明排序的一部分问题；但近看可能有颗粒感，阈值过高会让角色破碎或闪烁。
 - **可调属性：** 将 Color 和阈值暴露给 Inspector，便于在不同场景、相机距离和美术风格下快速调整，而无需重写 Shader Graph。
 
-### 鼠标射线处理
+#### 鼠标射线处理
 
 对于只承担视觉装饰、无需阻挡怪物或其他物理对象的墙面，当时关闭其 `MeshCollider`，让鼠标射线不再优先命中墙面。
 
