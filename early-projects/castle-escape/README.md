@@ -1,4 +1,4 @@
-# 古堡逃杀｜Unity 本科游戏作品
+# 古堡逃杀｜Unity 第三人称恐怖向动作游戏
 
 本科阶段的 Unity 游戏作品。当前公开材料为历史 Windows 成品：开始界面与主游戏分别保留在两个目录中。
 视频演示：[bilibili](https://www.bilibili.com/video/BV1aVpR6aEKL/?spm_id_from=333.1387.homepage.video_card.click&vd_source=81196c19ce83679c20e55a5cf9b5a4c3)
