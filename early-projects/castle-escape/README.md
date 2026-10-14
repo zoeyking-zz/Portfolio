@@ -40,13 +40,7 @@
 
 如后续找回包含 `Assets/` 和 `ProjectSettings/` 的工程，可再补充源代码、Unity 版本、依赖、场景及复现说明。现有成品与源码状态分别记录。
 
-## 角色被场景遮挡时的可见性处理（Shader Graph）
-
-> 以下内容依据作者对历史 Unity 工程的复盘整理。当前公开仓库仅保留 Windows 成品，未保留可复现的 `Assets/`、Shader Graph 或 C# 源工程；因此它用于说明当时的技术方案，不声称现已可重新运行或逐项验证。
-
-### 演示图片
-
-<img width="1608" height="852" alt="image" src="https://github.com/user-attachments/assets/4aa223ee-82b3-48fb-b4b2-aeafdf54e8bd" />
+## 怪物被墙面遮挡时的可见性处理（Shader Graph）
 
 ### 问题
 
@@ -79,6 +73,10 @@ Color (Property) ┘
 Dither + Float (Property) ──> Fragment / Alpha
 Float (Property) ───────────> Alpha Clip Threshold
 ```
+
+### 演示图片
+
+<img width="1608" height="852" alt="image" src="https://github.com/user-attachments/assets/4aa223ee-82b3-48fb-b4b2-aeafdf54e8bd" />
 
 ### 原理与取舍
 
