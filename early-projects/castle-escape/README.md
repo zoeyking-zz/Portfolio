@@ -93,6 +93,61 @@ Float (Property) ───────────> Alpha Clip Threshold
 
 > 边界：关闭 Collider 会同时失去该对象的物理碰撞能力。若前面仍需要物理碰撞，更稳妥的延伸方案是将其放到专用 Layer，并让鼠标射线的 LayerMask 排除该 Layer。
 
+## Shader Graph：程序化传送门视觉
+
+在场景中以 Quad 作为传送门表面，使用 **URP Lit + Transparent Shader Graph** 构建可参数化的旋涡能量视觉。该效果的目标不是依赖固定帧动画，而是用 UV 变形和程序化纹理持续生成流动图案；通过材质参数可快速调整颜色、流速、纹理密度与对比度。
+
+### Graph 与材质参数
+
+保留的 Shader Graph 截图显示，材质公开了以下可调参数：
+
+| 参数 | 用途 |
+|---|---|
+| `Speed` | 控制随时间变化的 UV 扭曲/流动速度 |
+| `Strength` | 控制最终图案或颜色表现的强度 |
+| `Mask` | 圆形/径向遮罩，将效果约束在传送门轮廓内 |
+| `Color` | 控制传送门颜色，可在材质 Inspector 中直接调节 |
+| `CellScale` | 控制 Voronoi 纹理的细胞密度与细节尺度 |
+| `PowerScale` | 控制程序化图案的明暗对比与亮部收束程度 |
+
+节点链的核心思路为：
+
+```text
+UV0
+ ↓
+Twirl（Time × Speed 驱动）
+ ↓
+Voronoi（CellScale 控制细节）
+ ↓
+Power（PowerScale 强化对比）
+ ↓
+与 Mask、Color、Strength 多次 Multiply
+ ↓
+透明传送门表面
+```
+
+### 关键实现与原理
+
+- **动画 UV 扭曲：** `Time` 与 `Speed` 相乘后驱动 `Twirl`。Twirl 将平面 UV 围绕中心卷曲，使静态程序化纹理形成持续旋转、向中心汇聚的运动感。
+- **程序化能量纹理：** `Voronoi` 生成细胞状的连续变化图案；在扭曲后的 UV 上采样时，图案会由规则细胞转化为旋涡式能量流，而非一张重复滚动的静态贴图。
+- **对比控制：** `Power` 对 Voronoi 的数值分布做非线性调整。通过 `PowerScale` 可控制亮部是否更集中、暗部是否更干净，从而在“柔和雾状”和“锐利能量条纹”之间取舍。
+- **形状与颜色：** `Mask` 的径向衰减将程序化纹理裁切为圆形/椭圆形传送门，避免效果暴露 Quad 的矩形边界；`Color` 与 `Strength` 参与末端叠加，提供可快速迭代的颜色与强度控制。
+- **透明表面：** Graph 设置为 Transparent，使 Mask 边缘可自然淡出。透明效果需要结合具体场景检查排序、背景对比度和边缘颗粒感，避免在复杂半透明物体附近产生视觉问题。
+
+### 设计价值
+
+该实现将“旋转速度、能量密度、对比度、形状和颜色”从节点逻辑中抽成材质参数。即使不修改 Graph，美术或关卡使用者也能为不同区域、阵营或剧情状态制作不同传送门预设；程序化纹理避免了依赖一套固定动画贴图的重复感。
+
+需要区分的是：该 Shader 负责**传送门的视觉表面**，实际的角色移动、入口/出口配对、触发器、冷却时间和场景切换应由独立的 Collider/Trigger 与游戏脚本处理。
+
+### 演示与证据状态
+
+![Portal Shader Graph](https://github.com/user-attachments/assets/placeholder-portal-graph)
+
+> 待补充：Shader Graph 完整截图、Game View 运行效果、不同 `Color / Speed / CellScale / PowerScale` 组合的对比图或 GIF。
+
+当前公开仓库保留的是历史 Windows 成品和 Graph 截图，未包含原始 Unity `Assets/`、Shader Graph 资产或 C# 源工程。因此本节仅陈述截图可见的参数、节点类型和可解释的高层处理链，不将未保留的精确端口连接、实际传送脚本、性能数据或完整复现能力表述为已验证事实。
+
 ## 许可
 
 此作品供求职展示，未附开源许可证。Unity 运行库及第三方美术、音频等素材的权利归原作者。
