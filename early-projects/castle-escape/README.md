@@ -78,6 +78,8 @@ Float (Property) ───────────> Alpha Clip Threshold
 
 <img width="1608" height="852" alt="image" src="https://github.com/user-attachments/assets/4aa223ee-82b3-48fb-b4b2-aeafdf54e8bd" />
 
+<img width="1683" height="858" alt="image" src="https://github.com/user-attachments/assets/a883596b-41ed-43f9-aab9-fe39322e959f" />
+
 ### 原理与取舍
 
 - **Fresnel：** 以视角相关的边缘权重强调轮廓。它本身并不检测“是否被墙遮挡”，而是给角色提供更容易辨认的边缘表现；若需要仅在遮挡发生时启用/切换材质，仍需由相机射线、可见性逻辑或其他游戏逻辑驱动。
