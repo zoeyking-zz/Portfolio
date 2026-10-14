@@ -142,8 +142,6 @@ Power（PowerScale 强化对比）
 
 ### 演示与证据状态
 
-![Portal Shader Graph](https://github.com/user-attachments/assets/placeholder-portal-graph)
-
 > 待补充：Shader Graph 完整截图、Game View 运行效果、不同 `Color / Speed / CellScale / PowerScale` 组合的对比图或 GIF。
 
 当前公开仓库保留的是历史 Windows 成品和 Graph 截图，未包含原始 Unity `Assets/`、Shader Graph 资产或 C# 源工程。因此本节仅陈述截图可见的参数、节点类型和可解释的高层处理链，不将未保留的精确端口连接、实际传送脚本、性能数据或完整复现能力表述为已验证事实。
