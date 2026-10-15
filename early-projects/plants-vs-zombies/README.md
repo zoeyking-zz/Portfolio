@@ -6,7 +6,7 @@ CreateJS/Adobe Animate 导出的浏览器小游戏。部署到 GitHub Pages 后�
 
 启用本仓库 GitHub Pages 后，访问：
 
-`https://zoeyking-zz.github.io/technical-art-portfolio-staging/early-projects/plants-vs-zombies/`
+`https://zoeyking-zz.github.io/Portfolio/games/plants-vs-zombies/`
 
 所有脚本、贴图与库均使用相对路径，因此在仓库子目录的 GitHub Pages 地址下也能正常加载。
 

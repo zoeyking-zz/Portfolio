@@ -2,7 +2,7 @@
 
 一个面向技术美术作品审查的、本地优先的多格式 3D 资产浏览与自动检查工具。
 
-**Live demo:** https://zoeyking-zz.github.io/Portfolio/
+**Live demo:** [https://zoeyking-zz.github.io/Portfolio/apps/gen3d-inspector/](https://zoeyking-zz.github.io/Portfolio/apps/gen3d-inspector/)
 
 ## Highlights
 

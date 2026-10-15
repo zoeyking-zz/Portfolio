@@ -1,10 +1,11 @@
-name: Deploy Gen3D Inspector to GitHub Pages
+name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
     branches: [main]
     paths:
       - 'gen3d-inspector/**'
+      - 'early-projects/plants-vs-zombies/**'
       - '.github/workflows/deploy-gen3d-inspector.yml'
   workflow_dispatch:
 
@@ -14,7 +15,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: gen3d-inspector-pages
+  group: portfolio-pages
   cancel-in-progress: true
 
 jobs:
@@ -38,10 +39,19 @@ jobs:
         run: npm run build:github-pages
       - name: Verify generated bundle
         run: npm run verify:github-pages
+      - name: Assemble Portfolio Pages site
+        run: |
+          rm -rf pages-output
+          mkdir -p pages-output/apps/gen3d-inspector
+          mkdir -p pages-output/games/plants-vs-zombies
+          touch pages-output/.nojekyll
+          cp ../portfolio-home/index.html pages-output/index.html
+          cp -R dist-static/. pages-output/apps/gen3d-inspector/
+          cp -R ../early-projects/plants-vs-zombies/. pages-output/games/plants-vs-zombies/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: gen3d-inspector/dist-static
+          path: gen3d-inspector/pages-output
 
   deploy:
     needs: build

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="金桢桢的技术美术、实时图形与交互作品集。" />
+    <title>金桢桢｜Technical Art Portfolio</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, "Microsoft YaHei", sans-serif; background: #0c1020; color: #edf3ff; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 18% 5%, #193469 0, transparent 32rem), #0c1020; }
+      main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; padding: 88px 0; }
+      .eyebrow { color: #9fc4ff; font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+      h1 { max-width: 800px; margin: 16px 0; font-size: clamp(2.2rem, 6vw, 4.8rem); line-height: 1.05; }
+      .intro { max-width: 680px; color: #b9c5da; font-size: 1.1rem; line-height: 1.8; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 48px; }
+      a.card { display: block; min-height: 210px; padding: 28px; border: 1px solid #31466d; border-radius: 18px; color: inherit; text-decoration: none; background: rgba(15, 26, 51, .78); transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+      a.card:hover, a.card:focus-visible { transform: translateY(-4px); border-color: #9fc4ff; background: #172a51; outline: none; }
+      .tag { color: #9fc4ff; font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      h2 { margin: 12px 0; font-size: 1.45rem; }
+      p { margin: 0; color: #b9c5da; line-height: 1.65; }
+      footer { margin-top: 54px; color: #8293b0; font-size: .9rem; }
+      footer a { color: #b7d3ff; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">Technical Art · Real-time Graphics · Interactive Work</div>
+      <h1>金桢桢的作品集</h1>
+      <p class="intro">收录技术美术、实时图形、3D 工具与早期交互项目。每个在线项目使用稳定路径，后续新增内容将分别归入 apps、games 或 demos。</p>
+      <section class="grid" aria-label="在线作品">
+        <a class="card" href="apps/gen3d-inspector/">
+          <div class="tag">Apps</div>
+          <h2>Gen3D Inspector</h2>
+          <p>浏览器本地多格式 3D 资产检查器，支持 Graphdeco Gaussian Splat 真渲染与自适应视口。</p>
+        </a>
+        <a class="card" href="games/plants-vs-zombies/">
+          <div class="tag">Games</div>
+          <h2>植物大战僵尸</h2>
+          <p>基于 CreateJS / Adobe Animate 的浏览器端战场交互原型，可直接在线游玩。</p>
+        </a>
+      </section>
+      <footer>更多项目与源码请访问 <a href="https://github.com/zoeyking-zz/Portfolio">GitHub Portfolio</a>。</footer>
+    </main>
+  </body>
+</html>
+
