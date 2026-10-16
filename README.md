@@ -2,8 +2,6 @@
 
 个人技术美术、角色动画工具与实时图形作品集。近期项目放在仓库顶层，本科及早期项目统一收录于 [early-projects](early-projects/)。
 
-在线作品集入口：[https://zoeyking-zz.github.io/Portfolio/](https://zoeyking-zz.github.io/Portfolio/)。网址按稳定命名空间组织：`apps/` 收录工具类 Web 应用，`games/` 收录可在线游玩的小游戏，`demos/` 预留给后续交互演示。
-
 ## 近期项目
 
 | 项目 | 内容 | 入口 |
