@@ -3,10 +3,6 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'gen3d-inspector/**'
-      - 'early-projects/plants-vs-zombies/**'
-      - '.github/workflows/deploy-gen3d-inspector.yml'
   workflow_dispatch:
 
 permissions:
